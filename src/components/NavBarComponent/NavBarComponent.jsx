@@ -6,23 +6,30 @@ import Navbar from "react-bootstrap/Navbar";
 
 import CartWidgetComponent from "../CartWidgetComponent/CartWidgetComponent";
 
+import "./NavBarComponent.css";
+
 const NavBarComponent = () => {
   return (
-    <Navbar
-      expand="lg"
-      className="bg-body-tertiary"
-      bg="dark"
-      data-bs-theme="dark"
-    >
+    <Navbar expand="lg" className="header">
       <Container>
-        <Navbar.Brand href="#home">Té Acompaño</Navbar.Brand>
+        <Navbar.Brand href="#inicio" className="logo">
+          Té Acompaño
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#inicio">Inicio</Nav.Link>
-            <Nav.Link href="#productos">Productos</Nav.Link>
-            <Nav.Link href="#nosotros">Nosotros</Nav.Link>
-            <Nav.Link href="#contacto">Contacto</Nav.Link>
+          <Nav className="me-auto navbar">
+            <Nav.Link href="#inicio" className="link-navbar">
+              Inicio
+            </Nav.Link>
+            <Nav.Link href="#productos" className="link-navbar">
+              Productos
+            </Nav.Link>
+            <Nav.Link href="#nosotros" className="link-navbar">
+              Nosotros
+            </Nav.Link>
+            <Nav.Link href="#contacto" className="link-navbar">
+              Contacto
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <CartWidgetComponent />
