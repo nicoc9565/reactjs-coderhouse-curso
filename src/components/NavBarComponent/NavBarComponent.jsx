@@ -5,10 +5,23 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import CartWidgetComponent from "../CartWidgetComponent/CartWidgetComponent";
+import {getAllCategories} from "../../services/products";
 
 import "./NavBarComponent.css";
+import {NavDropdown} from "react-bootstrap";
 
 const NavBarComponent = () => {
+  const [categories, setCategories] = React.useState([]);
+
+  React.useEffect(() => {
+    getAllCategories()
+      .then((res) => {
+        setCategories(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <Navbar expand="lg" className="header">
       <Container>
@@ -30,6 +43,21 @@ const NavBarComponent = () => {
             <Nav.Link href="#contacto" className="link-navbar">
               Contacto
             </Nav.Link>
+            <NavDropdown
+              className="link-navbar"
+              title="Categorias"
+              id="basic-nav-dropdown"
+            >
+              {categories.map((category) => {
+                return (
+                  <NavDropdown.Item key={category.slug}>
+                    <Link to={`/category/${category.slug}`}>
+                      {category.name}
+                    </Link>
+                  </NavDropdown.Item>
+                );
+              })}
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
         <CartWidgetComponent />
@@ -39,26 +67,3 @@ const NavBarComponent = () => {
 };
 
 export default NavBarComponent;
-
-/* import React from "react";
-import "./Navbar.css";
-
-const NavBarComponent = () => {
-  return (
-    <header className="header">
-      <a href="/" className="logo">
-        Té Acompaño
-      </a>
-
-      <nav className="navbar">
-        <a href="/">inicio</a>
-        <a href="/">producto</a>
-        <a href="/">nosotros</a>
-        <a href="/">contacto</a>
-      </nav>
-    </header>
-  );
-};
-
-export default NavBarComponent;
- */

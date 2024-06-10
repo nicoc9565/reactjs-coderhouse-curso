@@ -14,9 +14,12 @@
 
 .logo {
     font-size: 1.5rem;
-    color: #fff !important;
     font-weight: 700;
     letter-spacing: 2px;
+
+    a {
+        color: #fff;
+    }
 }
 
 .navbar {
@@ -41,6 +44,10 @@
 
         &:hover::before {
             width: 100%;
+        }
+
+        a {
+            color: #000;
         }
     }
 }
