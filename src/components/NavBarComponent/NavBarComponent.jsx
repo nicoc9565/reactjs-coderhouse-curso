@@ -1,9 +1,9 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
 import CartWidgetComponent from "../CartWidgetComponent/CartWidgetComponent";
 
 import "./NavBarComponent.css";
@@ -12,14 +12,14 @@ const NavBarComponent = () => {
   return (
     <Navbar expand="lg" className="header">
       <Container>
-        <Navbar.Brand href="#inicio" className="logo">
-          Té Acompaño
+        <Navbar.Brand className="logo">
+          <Link to="/">Té Acompaño</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto navbar">
-            <Nav.Link href="#inicio" className="link-navbar">
-              Inicio
+            <Nav.Link className="link-navbar">
+              <Link to="/">Inicio</Link>
             </Nav.Link>
             <Nav.Link href="#productos" className="link-navbar">
               Productos
