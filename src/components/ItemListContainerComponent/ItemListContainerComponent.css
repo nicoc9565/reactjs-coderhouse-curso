@@ -1,11 +1,56 @@
 .itemListContainer {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
-    color: white;
-    margin: 5rem;
-    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    justify-items: center;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 5rem auto;
+}
+
+.custom-card {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    align-items: center;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #616d43 !important;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.card-link {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #616d43;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 20px 0;
+}
+
+.card-link:hover {
+    color: #3e452f;
+    transform: scale(1.2);
 }

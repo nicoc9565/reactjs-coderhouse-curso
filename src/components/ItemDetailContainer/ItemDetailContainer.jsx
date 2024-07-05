@@ -1,5 +1,6 @@
 import React from "react";
 import {CartContext} from "../../context/CartContext";
+import "./ItemDetailContainer.css";
 
 const ItemDetailContainer = ({product}) => {
   const {addToCart, removeFromCart} = React.useContext(CartContext);
@@ -11,37 +12,35 @@ const ItemDetailContainer = ({product}) => {
   };
 
   const handleRemove = () => {
-    setQuantity(quantity - 1);
-    removeFromCart(product, 1);
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+      removeFromCart(product, 1);
+    }
   };
 
   return (
-    <div style={{display: "flex"}}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-        }}
-      >
+    <div className="item-detail-container">
+      <div className="item-images">
         {product.images ? (
-          product.images.map((image, index) => {
-            return <img key={index} src={image} alt={product.title} />;
-          })
+          product.images.map((image, index) => (
+            <img key={index} src={image} alt={product.title} />
+          ))
         ) : (
           <img
             src={product.thumbnail}
             alt={product.title}
-            style={{width: 300}}
+            className="item-thumbnail"
           />
         )}
       </div>
-      <div style={{marginLeft: 100}}>
+      <div className="item-details">
         <h1>{product.title}</h1>
         <p>{product.description}</p>
-        <p>{product.price}</p>
+        <p>
+          <span>Precio: ${product.price}</span>
+        </p>
       </div>
-      <div>
+      <div className="item-actions">
         <button onClick={handleAdd}>+</button>
         <span>{quantity}</span>
         <button onClick={handleRemove}>-</button>

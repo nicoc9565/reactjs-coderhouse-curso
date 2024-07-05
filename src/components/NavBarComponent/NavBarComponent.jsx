@@ -26,13 +26,7 @@ const NavBarComponent = () => {
               <Link to="/">Inicio</Link>
             </Nav.Link>
             <Nav.Link href="#productos" className="link-navbar">
-              Productos
-            </Nav.Link>
-            <Nav.Link href="#nosotros" className="link-navbar">
-              Nosotros
-            </Nav.Link>
-            <Nav.Link href="#contacto" className="link-navbar">
-              Contacto
+              <Link to="/">Productos</Link>
             </Nav.Link>
             <NavDropdown
               className="link-navbar"
@@ -42,7 +36,13 @@ const NavBarComponent = () => {
               {items.map((category) => {
                 return (
                   <NavDropdown.Item key={category.slug}>
-                    <Link to={`/category/${category.slug}`}>
+                    <Link
+                      style={{
+                        color: "#000",
+                        fontWeight: "bold",
+                      }}
+                      to={`/category/${category.slug}`}
+                    >
                       {category.name}
                     </Link>
                   </NavDropdown.Item>
